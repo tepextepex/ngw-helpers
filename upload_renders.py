@@ -53,7 +53,7 @@ def create_raster_layer(file_name, parent_id, headers):
         print('Failed: %s responded %s. %s' % (conf.HOST, r.status_code, r.json()['message']))
 
 
-ngwConnectionSettings = NGWConnectionSettings("test", "http://webgis.niersc.spb.ru", "aterekhov", "00aterekhov00")
+ngwConnectionSettings = NGWConnectionSettings("test", conf.HOST, conf.LOGIN, conf.PASSWORD)
 ngwConnection = NGWConnection(ngwConnectionSettings)
 
 headers = {'Accept': '*/*', 'Authorization': basic_auth_str(conf.LOGIN, conf.PASSWORD)}
