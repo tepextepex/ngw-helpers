@@ -8,7 +8,9 @@ import conf
 
 
 def basic_auth_str(username, password):
-    """Returns a Basic Auth string"""
+    """
+    Returns a Basic Auth string
+    """
     authstr = 'Basic ' + to_native_string(
         b64encode(('%s:%s' % (username, password)).encode('utf-8')).strip()
     )
@@ -16,7 +18,9 @@ def basic_auth_str(username, password):
 
 
 def is_S1_render(fname):
-    """checks if the filename is valid name for S1 renders ready for upload"""
+    """
+    Checks if the filename is valid name for S1 renders ready for upload
+    """
     if fname[-11:] == '_render.tif' and fname[:9] == 'niersc_s1':
         return True
     else:
@@ -24,7 +28,9 @@ def is_S1_render(fname):
 
 
 def create_raster_layer(file_name, parent_id, headers):
-    """uploads raster, creates raster layer in directory with parent_id, creates raster style for it"""
+    """
+    Uploads raster, creates raster layer in directory with parent_id, creates raster style for it
+    """
     print('Uploading ' + file_name)
     attachment_info = ngwConnection.upload_file(file_name)
     display_name = file_name.split("/")[-1][:-11]  # cuts the "_render.tif" suffix
